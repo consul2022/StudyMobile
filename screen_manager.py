@@ -26,7 +26,8 @@ class SM(ScreenManager):
         self.switch_to(screen=self.screen_one, direction='right')
     def switch_to_translator(self, button=None):
         self.switch_to(screen=self.translator, direction='left')
-
+    def switch_to_menu(self, buttion=None):
+        self.switch_to(screen=self.screen_two,direction="right")
 
 class ScreenOne(MDScreen):
     def __init__(self, manager: SM, **kwargs):
@@ -54,22 +55,22 @@ class ScreenTwo(MDScreen):
         back = FitImage(source='1.jpg')
         self.add_widget(back)
 
-        self.back_button = MDIconButton(
-            icon="arrow-left-circle",
-            user_font_size="64sp",
-            on_press=manager.switch_to_screen_one
+        # self.back_button = MDIconButton(
+        #     icon="arrow-left-circle",
+        #     user_font_size="64sp",
+        #     on_press=manager.switch_to_screen_one
+        #
+        # )
+        # self.add_widget(self.back_button)
 
-        )
-        self.add_widget(self.back_button)
-
-        self.front_button = MDIconButton(
-            icon="arrow-right-circle",
-            user_font_size="64sp",
-            pos_hint={'center_x': 0.15, 'center_y': 0.075},
-        )
+        #self.front_button = MDIconButton(
+            #icon="arrow-right-circle",
+            #user_font_size="64sp",
+            #pos_hint={'center_x': 0.15, 'center_y': 0.075},
+        #)
         from button_menu import translator, spelling, voice_recorder, digitalization, to_share
 
-        self.add_widget(self.front_button)
+        #self.add_widget(self.front_button)
 
         translator.on_press = manager.switch_to_translator
         self.add_widget(translator)

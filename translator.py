@@ -121,6 +121,17 @@ class Translator(MDScreen):
 
         self.translator = GoogleTranslator()
 
+        self.back_button = MDIconButton(
+            icon="arrow-left-circle",
+            user_font_size="50sp",
+            on_press=manager.switch_to_menu,
+            theme_text_color="Custom",
+            text_color=[100 / 255, 220 / 255, 180 / 255, 1],
+
+        )
+        self.add_widget(self.back_button)
+
+
     def exchange(self, button):
         self.language_button_left.text, self.language_button_right.text = self.language_button_right.text, self.language_button_left.text
         self.field.text, self.translation.text = self.translation.text.strip(), self.field.text.strip()
